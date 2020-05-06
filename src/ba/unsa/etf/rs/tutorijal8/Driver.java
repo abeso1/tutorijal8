@@ -1,20 +1,20 @@
 package ba.unsa.etf.rs.tutorijal8;
 
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Driver {
     private String name;
     private String surname;
     private String jmb;
-    private LocalDate dateOfBirth;
+    private LocalDate Birthday;
     private LocalDate dateOfEmployment;
 
     public Driver(String name, String surname, String jmb, LocalDate dateOfBirth, LocalDate dateOfEmployment) {
         this.name = name;
         this.surname = surname;
         this.jmb = jmb;
-        this.dateOfBirth = dateOfBirth;
+        this.Birthday = dateOfBirth;
         this.dateOfEmployment = dateOfEmployment;
     }
 
@@ -45,12 +45,12 @@ public class Driver {
         this.jmb = jmb;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public LocalDate getBirthday() {
+        return Birthday;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setBirthday(LocalDate dateOfBirth) {
+        this.Birthday = dateOfBirth;
     }
 
     public LocalDate getDateOfEmployment() {

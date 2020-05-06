@@ -1,25 +1,25 @@
 package ba.unsa.etf.rs.tutorijal8;
 
 public class Bus {
-    private String manufacturer;
+    private String Maker;
     private String series;
-    private int numberOfSeats;
+    private int SeatNumber;
 
     public Bus(String manufacturer, String series, int numberOfSeats) {
-        this.manufacturer = manufacturer;
+        this.Maker = manufacturer;
         this.series = series;
-        this.numberOfSeats = numberOfSeats;
+        this.SeatNumber = numberOfSeats;
     }
 
     public Bus() {
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public String getMaker() {
+        return Maker;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setMaker(String manufacturer) {
+        this.Maker = manufacturer;
     }
 
     public String getSeries() {
@@ -30,11 +30,19 @@ public class Bus {
         this.series = series;
     }
 
-    public int getNumberOfSeats() {
-        return numberOfSeats;
+    public int getSeatNumber() {
+        return SeatNumber;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public void setSeatNumber(int numberOfSeats) {
+        this.SeatNumber = numberOfSeats;
+    }
+
+    public Driver getDriverOne() {
+        return null;
+    }
+
+    public Driver getDriverTwo() {
+        return null;
     }
 }
