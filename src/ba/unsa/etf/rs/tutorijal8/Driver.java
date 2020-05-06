@@ -60,4 +60,9 @@ public class Driver {
     public void setDateOfEmployment(LocalDate dateOfEmployment) {
         this.dateOfEmployment = dateOfEmployment;
     }
+
+    @Override
+    public String toString() {
+        return " - ("+name+" "+surname+" ( "+jmb+" )"+")";
+    }
 }

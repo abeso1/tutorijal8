@@ -45,4 +45,9 @@ public class Bus {
     public Driver getDriverTwo() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return Maker+" "+ series+" ( seats: "+SeatNumber+" )";
+    }
 }
