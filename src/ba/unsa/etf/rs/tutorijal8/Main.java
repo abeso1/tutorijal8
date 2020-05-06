@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         dao = TransportDAO.getInstance();
+        dao.resetDatabase();
         Scanner tok = new Scanner(System.in);
         String result="";
         while (tok.hasNextLine()) {
