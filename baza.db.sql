@@ -1,5 +1,3 @@
-Drop table if exists bus;
-Drop table if exists driver;
 CREATE TABLE IF NOT EXISTS "bus" (
 	"id"	INTEGER,
 	"manufacturer"	TEXT,
@@ -17,4 +15,6 @@ CREATE TABLE IF NOT EXISTS "driver" (
 	"date_of_employment"	INTEGER,
 	PRIMARY KEY("id")
 );
+delete from bus;
+delete from driver;
 
