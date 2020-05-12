@@ -1,9 +1,9 @@
 package ba.unsa.etf.rs.tutorijal8;
 
+import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Driver {
@@ -64,7 +64,7 @@ public class Driver {
         return Birthday.get();
     }
 
-    public SimpleObjectProperty<LocalDate> birthdayProperty() {
+    public Property<String> birthdayProperty() {
         return Birthday;
     }
 
@@ -76,7 +76,7 @@ public class Driver {
         return dateOfEmployment.get();
     }
 
-    public SimpleObjectProperty<LocalDate> dateOfEmploymentProperty() {
+    public Property<String> dateOfEmploymentProperty() {
         return dateOfEmployment;
     }
 
