@@ -5,7 +5,10 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.*;
+import java.util.Scanner;
 
 public class BusModel {
     private ObservableList<Bus> busevi = FXCollections.observableArrayList();
@@ -14,12 +17,19 @@ public class BusModel {
     private static BusModel instanca = null;
 
     private Connection conn;
-    private PreparedStatement stmt;
+    private PreparedStatement stmt, stmt2, stmt3, stmt4;
 
     private BusModel(){
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:baza.db");
+            resetDatabase();
             stmt = conn.prepareStatement("SELECT manufacturer, series, number_of_seats FROM bus");
+            stmt2 = conn.prepareStatement("insert into bus(id,manufacturer,series,number_of_seats) values (7,'Man','X63',24)");
+            stmt3 = conn.prepareStatement("insert into bus(id,manufacturer,series,number_of_seats) values (6,'Scania','V23',255)");
+            stmt4 = conn.prepareStatement("insert into bus(id,manufacturer,series,number_of_seats) values (1,'Zaga','V23',124)");
+            stmt2.executeUpdate();
+            stmt3.executeUpdate();
+            stmt4.executeUpdate();
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
                 Bus b = new Bus(rs.getString(1),rs.getString(2),rs.getInt(3));
@@ -32,6 +42,31 @@ public class BusModel {
 
         if(trenutniBus == null) trenutniBus = new SimpleObjectProperty<>();
 
+    }
+
+    public void resetDatabase() {
+        Scanner ulaz = null;
+
+        try {
+            ulaz = new Scanner(new FileInputStream("baza.db.sql"));
+            String sqlUpit = "";
+            while(ulaz.hasNext()){
+                sqlUpit+=ulaz.nextLine();
+                if(sqlUpit.charAt(sqlUpit.length()-1)==';'){
+                    try {
+                        Statement stmt = conn.createStatement();
+                        stmt.execute(sqlUpit);
+                        sqlUpit="";
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ulaz.close();
     }
 
     public static void initialize() {

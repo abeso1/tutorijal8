@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS "driver" (
 	"name"	TEXT,
 	"surname"	TEXT,
 	"jmb"	TEXT,
-	"date_of_birth"	INTEGER,
-	"date_of_employment"	INTEGER,
+	"date_of_birth"	timestamp ,
+	"date_of_employment"	timestamp ,
 	PRIMARY KEY("id")
 );
 delete from bus;

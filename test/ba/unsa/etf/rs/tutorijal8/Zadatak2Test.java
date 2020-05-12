@@ -22,21 +22,21 @@ class Zadatak2Test {
     @Test
     void dodijeliVozacuAutobus() {
         InputStream defaultSystemIn = setupCustomInputStreamAndReturnStandardInputStream(
-                "dodaj autobus\nMan\nX534\n59\n" +
-                        "dodaj autobus\nIsuzu\nA77\n42\n" +
-                        "dodaj autobus\nIcarbus\nB856\n47\n" +
-                        "ukloni autobus\n2\n" +
-                        "dodaj vozaca\n" +
-                        "Zadatak\nZadatkovic\n4444444444444\n" +
-                        "1.1.1980\n1.6.2000\n" +
-                        "dodaj vozaca\n" +
-                        "Aplikacija\nAplikacijevic\n" +
-                        "5555555555555\n" +
-                        "12.12.1975\n" +
-                        "1.1.2019\n"+
-                        "Dodijeli vozaca autobusu\n" +
-                        "2\n" +
-                        "1\n");
+                "dodaj autobus\r\nMan\r\nX534\r\n59\r\n" +
+                        "dodaj autobus\r\nIsuzu\r\nA77\r\n42\r\n" +
+                        "dodaj autobus\r\nIcarbus\r\nB856\r\n47\r\n" +
+                        "ukloni autobus\r\n2\r\n" +
+                        "dodaj vozaca\r\n" +
+                        "Zadatak\r\nZadatkovic\r\n4444444444444\r\n" +
+                        "1.1.1980\r\n1.6.2000\r\n" +
+                        "dodaj vozaca\r\n" +
+                        "Aplikacija\r\nAplikacijevic\r\n" +
+                        "5555555555555\r\n" +
+                        "12.12.1975\r\n" +
+                        "1.1.2019\r\n"+
+                        "Dodijeli vozaca autobusu\r\n" +
+                        "2\r\n" +
+                        "1\r\n");
 
         String[] args= {"a","b"};
 
@@ -57,22 +57,22 @@ class Zadatak2Test {
     @Test
     void dodijeliIIspisiAutobuse() {
         InputStream defaultSystemIn = setupCustomInputStreamAndReturnStandardInputStream(
-                "dodaj autobus\nMan\nX534\n59\n" +
-                        "dodaj autobus\nIsuzu\nA77\n42\n" +
-                        "dodaj autobus\nIcarbus\nB856\n47\n" +
-                        "ukloni autobus\n2\n" +
-                        "dodaj vozaca\n" +
-                        "Zadatak\nZadatkovic\n4444444444444\n" +
-                        "1.1.1980\n1.6.2000\n" +
-                        "dodaj vozaca\n" +
-                        "Aplikacija\nAplikacijevic\n" +
-                        "5555555555555\n" +
-                        "12.12.1975\n" +
-                        "1.1.2019\n"+
-                        "Dodijeli vozaca autobusu\n" +
-                        "2\n" +
-                        "1\n" +
-                        "Ispisi autobuse\n");
+                "dodaj autobus\r\nMan\r\nX534\r\n59\r\n" +
+                        "dodaj autobus\r\nIsuzu\r\nA77\r\n42\r\n" +
+                        "dodaj autobus\r\nIcarbus\r\nB856\r\n47\r\n" +
+                        "ukloni autobus\r\n2\r\n" +
+                        "dodaj vozaca\r\n" +
+                        "Zadatak\r\nZadatkovic\r\n4444444444444\r\n" +
+                        "1.1.1980\r\n1.6.2000\r\n" +
+                        "dodaj vozaca\r\n" +
+                        "Aplikacija\r\nAplikacijevic\r\n" +
+                        "5555555555555\r\n" +
+                        "12.12.1975\r\n" +
+                        "1.1.2019\r\n"+
+                        "Dodijeli vozaca autobusu\r\n" +
+                        "2\r\n" +
+                        "1\r\n" +
+                        "Ispisi autobuse\r\n");
 
         String[] args= {"a","b"};
 
@@ -89,6 +89,7 @@ class Zadatak2Test {
         TransportDAO dao = TransportDAO.getInstance();
         Driver driver = dao.getDrivers().get(1);
         Bus bus = dao.getBusses().get(0);
+        System.out.println("."+outputHolder.toString()+"."+expected+".");
         assertAll(()->{
             assertTrue(outputHolder.toString().contains(expected));
             assertEquals(bus.getDriverOne(),driver);

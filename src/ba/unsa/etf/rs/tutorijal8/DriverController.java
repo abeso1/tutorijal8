@@ -26,6 +26,8 @@ public class DriverController {
         model2 = m2;
     }
 
+
+
     @FXML
     public void initialize(){
         izborVozaca.setItems(model.getVozaci());
