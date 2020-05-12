@@ -3,6 +3,7 @@ package ba.unsa.etf.rs.tutorijal8;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 
 import javafx.event.ActionEvent;
@@ -19,7 +20,7 @@ public class DriverController {
     public TextField vozacJmb;
     public TextField busNaziv;
     public TextField busSeries;
-    public TextField busMjesta;
+    public Slider sliderBus;
 
     public DriverController(DriverModel m, BusModel m2){
         model = m;
@@ -55,17 +56,17 @@ public class DriverController {
             if(oldBus != null){
                 busNaziv.textProperty().unbindBidirectional(oldBus.makerProperty());
                 busSeries.textProperty().unbindBidirectional(oldBus.seriesProperty());
-                busMjesta.textProperty().unbindBidirectional(oldBus.seatNumberProperty());
+                sliderBus.valueProperty().unbindBidirectional(oldBus.seatNumberProperty());
             }
             if(newBus == null){
                 busNaziv.setText("");
                 busSeries.setText("");
-                busMjesta.setText("");
+                sliderBus.setValue(50);
             }
             else {
                 busNaziv.textProperty().bindBidirectional(newBus.makerProperty());
                 busSeries.textProperty().bindBidirectional(newBus.seriesProperty());
-                busMjesta.textProperty().bindBidirectional(new SimpleStringProperty(newBus.seatNumberProperty().toString()));
+                sliderBus.valueProperty().bindBidirectional(newBus.seatNumberProperty());
             }
         });
     }

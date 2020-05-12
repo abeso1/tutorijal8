@@ -86,7 +86,7 @@
                                      <TextField fx:id="busSeries" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                      <Button onAction="#ispisiBuseve" text="Ispiši buseve" GridPane.rowIndex="3" />
                                      <Label text="Broj mjesta:" GridPane.rowIndex="1" />
-                                     <TextField fx:id="busMjesta" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Slider fx:id="sliderBus" max="150.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
                              </GridPane>
                          </children>

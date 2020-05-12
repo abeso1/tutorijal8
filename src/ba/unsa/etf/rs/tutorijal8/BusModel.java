@@ -25,7 +25,7 @@ public class BusModel {
             resetDatabase();
             stmt = conn.prepareStatement("SELECT manufacturer, series, number_of_seats FROM bus");
             stmt2 = conn.prepareStatement("insert into bus(id,manufacturer,series,number_of_seats) values (7,'Man','X63',24)");
-            stmt3 = conn.prepareStatement("insert into bus(id,manufacturer,series,number_of_seats) values (6,'Scania','V23',255)");
+            stmt3 = conn.prepareStatement("insert into bus(id,manufacturer,series,number_of_seats) values (6,'Scania','V23',25)");
             stmt4 = conn.prepareStatement("insert into bus(id,manufacturer,series,number_of_seats) values (1,'Zaga','V23',124)");
             stmt2.executeUpdate();
             stmt3.executeUpdate();
