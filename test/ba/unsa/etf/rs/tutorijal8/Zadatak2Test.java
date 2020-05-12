@@ -41,7 +41,7 @@ class Zadatak2Test {
         String[] args= {"a","b"};
 
 
-        MainWindow.main(args);
+        Main.main(args);
 
 
         revertToStandardInputStream(defaultSystemIn);
@@ -79,7 +79,7 @@ class Zadatak2Test {
         PrintStream defaultSystemOut = System.out;
         ByteArrayOutputStream outputHolder = setupCustomOutputStreamAndReturnIt();
 
-        MainWindow.main(args);
+        Main.main(args);
 
         revertToStandardOutputStream(defaultSystemOut);
 

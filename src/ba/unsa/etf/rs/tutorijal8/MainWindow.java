@@ -7,12 +7,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainWindow extends Application {
-
+    //kada se zele testovi pokrenuti ova se klasa treba zakomentarisati
     @Override
     public void start(Stage primaryStage) throws Exception{
         DriverModel model = DriverModel.dajInstancu();
+        BusModel model2 = BusModel.dajInstancu();
 
-        DriverController ctrl = new DriverController(model);
+        DriverController ctrl = new DriverController(model,model2);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         loader.setController(ctrl);
         Parent root = loader.load();

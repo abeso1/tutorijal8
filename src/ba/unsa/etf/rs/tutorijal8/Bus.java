@@ -57,7 +57,7 @@ public class Bus {
 
     @Override
     public String toString() {
-        return Maker+" "+ series+" ( seats: "+SeatNumber+" )";
+        return getMaker()+" "+ getSeries()+" ( seats: "+getSeatNumber()+" )";
     }
 
     public Driver getDriverOne() {

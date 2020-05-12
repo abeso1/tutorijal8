@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rs.tutorijal8;
+package ba.unsa.etf.rs.tutorijal8;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -108,4 +108,3 @@ public class Main {
         dao.addDriver(new Driver(name, surname, umcn, birthday, hireDate));
     }
 }
-*/
