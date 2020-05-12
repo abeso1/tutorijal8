@@ -53,8 +53,18 @@ public class Bus {
         this.SeatNumber.set(seatNumber);
     }
 
+
+
     @Override
     public String toString() {
         return Maker+" "+ series+" ( seats: "+SeatNumber+" )";
+    }
+
+    public Driver getDriverOne() {
+        return null;
+    }
+
+    public Driver getDriverTwo() {
+        return null;
     }
 }

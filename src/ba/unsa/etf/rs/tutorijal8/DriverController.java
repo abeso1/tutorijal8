@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 
 public class DriverController {
 
@@ -14,8 +14,6 @@ public class DriverController {
     public TextField imeVozac;
     public TextField prezimeVozac;
     public TextField vozacJmb;
-    public TextField vozacDatumzaposlenja;
-    public TextField vozacDatumRodjenja;
 
     public DriverController(DriverModel m){
         model = m;
@@ -30,22 +28,16 @@ public class DriverController {
                 imeVozac.textProperty().unbindBidirectional(oldVozac.nameProperty());
                 prezimeVozac.textProperty().unbindBidirectional(oldVozac.surnameProperty());
                 vozacJmb.textProperty().unbindBidirectional(oldVozac.jmbProperty());
-                vozacDatumzaposlenja.textProperty().unbindBidirectional(oldVozac.dateOfEmploymentProperty());
-                vozacDatumRodjenja.textProperty().unbindBidirectional(oldVozac.birthdayProperty());
             }
             if(newVozac == null){
                 imeVozac.setText("");
                 prezimeVozac.setText("");
                 vozacJmb.setText("");
-                vozacDatumzaposlenja.setText("");
-                vozacDatumRodjenja.setText("");
             }
             else {
                 imeVozac.textProperty().bindBidirectional(newVozac.nameProperty());
                 prezimeVozac.textProperty().bindBidirectional(newVozac.surnameProperty());
                 vozacJmb.textProperty().bindBidirectional(newVozac.jmbProperty());
-                vozacDatumzaposlenja.textProperty().bindBidirectional(newVozac.dateOfEmploymentProperty());
-                vozacDatumRodjenja.textProperty().bindBidirectional(newVozac.birthdayProperty());
             }
         });
     }

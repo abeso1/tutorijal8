@@ -25,7 +25,7 @@ class Zadatak1Test {
                 "dodaj vozaca\nTest\nTestovic\n1111111111111\n11.2.1997\n11.3.2018\n");
 
         String[] args= {"a","b"};
-        Main.main(args);
+        MainWindow.main(args);
         System.setIn(defaultSystemIn);
         TransportDAO dao = TransportDAO.getInstance();
         ArrayList<Driver> drivers = dao.getDrivers();
@@ -43,7 +43,7 @@ class Zadatak1Test {
                 "dodaj vozaca\nTest\nTestovic\n1111111111111\n11.2.1997\n11.3.2018\n" +
                 "dodaj vozaca\nPriprema\nPripremovic\n2222222222222\n1.2.1990\n2.3.2017\n" + "otpusti vozaca\n1\n");
         String[] args= {"a","b"};
-        Main.main(args);
+        MainWindow.main(args);
         System.setIn(defaultSystemIn);
         TransportDAO dao = TransportDAO.getInstance();
         ArrayList<Driver> drivers = dao.getDrivers();
@@ -61,7 +61,7 @@ class Zadatak1Test {
                 "dodaj autobus\nIcarbus\nB856\n47\n");
 
         String[] args= {"a","b"};
-        Main.main(args);
+        MainWindow.main(args);
         System.setIn(defaultSystemIn);
         TransportDAO dao = TransportDAO.getInstance();
         ArrayList<Bus> busses = dao.getBusses();
@@ -81,7 +81,7 @@ class Zadatak1Test {
                 "ukloni autobus\n2\n");
 
         String[] args= {"a","b"};
-        Main.main(args);
+        MainWindow.main(args);
         revertToStandardInputStream(defaultSystemIn);
         TransportDAO dao = TransportDAO.getInstance();
         ArrayList<Bus> busses = dao.getBusses();

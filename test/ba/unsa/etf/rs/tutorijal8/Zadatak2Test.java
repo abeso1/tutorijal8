@@ -7,7 +7,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,7 +41,7 @@ class Zadatak2Test {
         String[] args= {"a","b"};
 
 
-        Main.main(args);
+        MainWindow.main(args);
 
 
         revertToStandardInputStream(defaultSystemIn);
@@ -80,7 +79,7 @@ class Zadatak2Test {
         PrintStream defaultSystemOut = System.out;
         ByteArrayOutputStream outputHolder = setupCustomOutputStreamAndReturnIt();
 
-        Main.main(args);
+        MainWindow.main(args);
 
         revertToStandardOutputStream(defaultSystemOut);
 

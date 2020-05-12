@@ -1,6 +1,5 @@
 package ba.unsa.etf.rs.tutorijal8;
 
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -64,7 +63,7 @@ public class Driver {
         return Birthday.get();
     }
 
-    public Property<String> birthdayProperty() {
+    public SimpleObjectProperty<LocalDate> birthdayProperty() {
         return Birthday;
     }
 
@@ -76,7 +75,7 @@ public class Driver {
         return dateOfEmployment.get();
     }
 
-    public Property<String> dateOfEmploymentProperty() {
+    public SimpleObjectProperty<LocalDate> dateOfEmploymentProperty() {
         return dateOfEmployment;
     }
 
@@ -86,6 +85,6 @@ public class Driver {
 
     @Override
     public String toString() {
-        return " - ("+name+" "+surname+" ( "+jmb+" )"+")";
+        return " - ("+getName()+" "+getSurname()+" ( "+getJmb()+" )"+")";
     }
 }

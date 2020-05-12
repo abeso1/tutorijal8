@@ -26,8 +26,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints />
             </rowConstraints>
             <children>
@@ -35,11 +33,7 @@
                 <TextField fx:id="imeVozac" GridPane.columnIndex="1" />
                 <Label text="Jmb: " GridPane.rowIndex="2" />
                 <TextField fx:id="vozacJmb" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label text="Dan zaposlenja:" GridPane.rowIndex="3" />
-                <TextField fx:id="vozacDatumzaposlenja" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <Button onAction="#ispisiVozace" text="Ispiši" GridPane.rowIndex="5" />
-            <Label text="Dan rodenja:" GridPane.rowIndex="4" />
-            <TextField fx:id="vozacDatumRodjenja" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Button onAction="#ispisiVozace" text="Ispiši" GridPane.rowIndex="3" />
             <Label text="Prezime:" GridPane.rowIndex="1" />
             <TextField fx:id="prezimeVozac" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             </children>
