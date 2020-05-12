@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Driver {
     private SimpleStringProperty name = new SimpleStringProperty("");
@@ -17,7 +18,7 @@ public class Driver {
         surname = new SimpleStringProperty(s);
         jmb = new SimpleStringProperty(j);
         Birthday = new SimpleObjectProperty<LocalDate>(doB);
-        dateOfEmployment = new SimpleObjectProperty<LocalDate>(doB);
+        dateOfEmployment = new SimpleObjectProperty<LocalDate>(doE);
     }
 
     public Driver() {
@@ -86,5 +87,17 @@ public class Driver {
     @Override
     public String toString() {
         return " - ("+getName()+" "+getSurname()+" ( "+getJmb()+" )"+")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return Objects.equals(name, driver.name) &&
+                Objects.equals(surname, driver.surname) &&
+                Objects.equals(jmb, driver.jmb) &&
+                Objects.equals(Birthday, driver.Birthday) &&
+                Objects.equals(dateOfEmployment, driver.dateOfEmployment);
     }
 }

@@ -89,7 +89,6 @@ class Zadatak2Test {
         TransportDAO dao = TransportDAO.getInstance();
         Driver driver = dao.getDrivers().get(1);
         Bus bus = dao.getBusses().get(0);
-        System.out.println("."+outputHolder.toString()+"."+expected+".");
         assertAll(()->{
             assertTrue(outputHolder.toString().contains(expected));
             assertEquals(bus.getDriverOne(),driver);

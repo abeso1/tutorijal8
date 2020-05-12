@@ -12,7 +12,8 @@ public class TransportDAO {
     private Connection conn;
 
     private PreparedStatement upit, addDriverUpit, driverIdUpit, addBusUpit, busIdUpit, getDriversUpit, getBussesUpit,
-                                deleteBusUpit, deleteDriverUpit, deleteBusFromDriversUpit, selectDriversUpit;
+                                deleteBusUpit, deleteDriverUpit, deleteBusFromDriversUpit, selectDriversUpit, setDriverUpit, selectBusUpit,
+                                selectDriverIDUpit;
 
     public static TransportDAO getInstance(){
         if(instance==null) instance = new TransportDAO();
@@ -48,6 +49,9 @@ public class TransportDAO {
             selectDriversUpit = conn.prepareStatement("SELECT * FROM driver WHERE jmb=?;");
             deleteBusFromDriversUpit = conn.prepareStatement("DELETE FROM bus WHERE driver=?;");
             deleteDriverUpit = conn.prepareStatement("DELETE FROM driver WHERE jmb=?;");
+            setDriverUpit = conn.prepareStatement("UPDATE bus SET driver=? WHERE id=?");
+            selectBusUpit = conn.prepareStatement("SELECT * FROM bus WHERE manufacturer=?");
+            selectDriverIDUpit = conn.prepareStatement("SELECT name,surname,jmb,date_of_birth,date_of_employment FROM driver WHERE id=?");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -145,7 +149,7 @@ public class TransportDAO {
             if(rs.next()){
                 id=rs.getInt(1)+1;
             }
-            int idDriver=1;
+            int idDriver=100;
             addBusUpit.setInt(1,id);
             addBusUpit.setString(2,bus.getMaker());
             addBusUpit.setString(3,bus.getSeries());
@@ -174,7 +178,21 @@ public class TransportDAO {
     }
 
     private Bus getBussesFromResultSet(ResultSet rs) throws SQLException {
-        return new Bus(rs.getString(2), rs.getString(3),rs.getInt(4));
+        int id = rs.getInt(5);
+        selectDriverIDUpit.setInt(1,id);
+        ResultSet rs2 = selectDriverIDUpit.executeQuery();
+        if(rs2.next()){
+            Driver d = new Driver(rs2.getString(1),rs2.getString(2),rs2.getString(3),rs2.getDate(4).toLocalDate(),rs2.getDate(5).toLocalDate());
+            for (int i=0;i<getDrivers().size();i++){
+                if(getDrivers().get(i).equals(d)){
+                    d=getDrivers().get(i);
+                }
+            }
+            return new Bus(rs.getString(2), rs.getString(3),rs.getInt(4),d);
+        }
+        else{
+            return new Bus(rs.getString(2), rs.getString(3),rs.getInt(4));
+        }
     }
 
     public void deleteBus(Bus bus) {
@@ -209,7 +227,21 @@ public class TransportDAO {
     }
 
     public void dodijeliVozacuAutobus(Driver driver, Bus bus, int which) {
-
+        try {
+            selectDriversUpit.setString(1,driver.getJmb());
+            ResultSet rs = selectDriversUpit.executeQuery();
+            if(!rs.next()) return;
+            int id = getIdDriver(rs);
+            selectBusUpit.setString(1,bus.getMaker());
+            rs = selectBusUpit.executeQuery();
+            if(!rs.next()) return;
+            int id2 = getIdDriver(rs);
+            setDriverUpit.setInt(1,id);
+            setDriverUpit.setInt(2,id2);
+            setDriverUpit.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

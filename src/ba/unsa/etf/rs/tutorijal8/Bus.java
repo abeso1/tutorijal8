@@ -7,6 +7,7 @@ public class Bus {
     private SimpleStringProperty Maker;
     private SimpleStringProperty series;
     private SimpleIntegerProperty SeatNumber;
+    private Driver driver;
 
     public Bus(String m, String s, int noS) {
         Maker = new SimpleStringProperty(m);
@@ -14,7 +15,15 @@ public class Bus {
         SeatNumber = new SimpleIntegerProperty(noS);
     }
 
+
     public Bus() {
+    }
+
+    public Bus(String string, String string1, int anInt, Driver d) {
+        Maker = new SimpleStringProperty(string);
+        series = new SimpleStringProperty(string1);
+        SeatNumber = new SimpleIntegerProperty(anInt);
+        driver = d;
     }
 
     public String getMaker() {
@@ -57,14 +66,17 @@ public class Bus {
 
     @Override
     public String toString() {
-        return getMaker()+" "+ getSeries()+" ( seats: "+getSeatNumber()+" )";
+        if(driver==null){
+            return getMaker()+" "+ getSeries()+" ( seats: "+getSeatNumber()+" )";
+        }
+        return getMaker()+" "+ getSeries()+" ( seats: "+getSeatNumber()+" ) - ("+ driver.getName()+" "+driver.getSurname()+" ( "+driver.getJmb()+" ))";
     }
 
     public Driver getDriverOne() {
-        return null;
+        return driver;
     }
 
     public Driver getDriverTwo() {
-        return null;
+        return driver;
     }
 }
